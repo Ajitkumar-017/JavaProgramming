@@ -1,0 +1,30 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+public class Date {
+    public static void main(String[] args) {
+        // Current date
+        LocalDate currentDate = LocalDate.now();
+        System.out.println("Current Date: " + currentDate);
+
+        // Current time
+        LocalTime currentTime = LocalTime.now();
+        System.out.println("Current Time: " + currentTime);
+
+        // Current date and time
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        System.out.println("Current Date and Time: " + currentDateTime);
+
+        // Parsing date from string
+        String dateString = "2024-02-06";
+        LocalDate parsedDate = LocalDate.parse(dateString);
+        System.out.println("Parsed Date: " + parsedDate);
+
+        // Formatting date
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String formattedDate = currentDate.format(formatter);
+        System.out.println("Formatted Date: " + formattedDate);
+    }
+}
