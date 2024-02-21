@@ -34,3 +34,7 @@ class TestMain
 	obj.show();
   }
 }
+
+
+//the use of abstract class and methods is that whenever a child class must execute some actions like in a real word a bank coould have
+//branches when we create a customer we do not create object of bank class but of its child class
