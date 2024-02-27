@@ -3,27 +3,31 @@ abstract class Shape
    double area,perimeter;
    abstract void CalcArea();
    abstract void CalcPerimeter(); 
+   void display()
+   {
+      System.out.println("Area: "+area);
+      System.out.println("Perimeter: "+perimeter);
+   }
 }
-class Trianlge extends Shape
+class Triangle extends Shape
 {
  int l,h,a,b,c;
-  Trianlge(int l,int h,int a,int b,int c)
+  Triangle(int l,int h,int a,int b,int c)
  {
     this.l=l;
     this.h=h;
     this.a=a;
     this.b=b;
     this.c=c;
+    System.out.println("For Triangle");
  }
  void CalcArea()
  {
     area=0.5*(b*h);
-    System.out.println("Area of traingle is: "+area);
  }
  void CalcPerimeter()
  {
   perimeter=a+b+c;
-  System.out.println("Perimeter of traingle is: "+perimeter);
  }
 }
 
@@ -34,16 +38,15 @@ class Rectangle extends Shape
  {
     this.l=l;
     this.w=w;
+    System.out.println("For Rectangle");
  }
  void CalcArea()
  {
     area=l*w;
-    System.out.println("Area of Rectangle is: "+area);
  }
  void CalcPerimeter()
  {
     perimeter=2*(l+w);
-    System.out.println("Perimeter of Rectangle is: "+perimeter);
  }
 }
 
@@ -53,16 +56,15 @@ class Square extends Shape
  Square(int s)
  {
     this.s=s;
+    System.out.println("For Square");
  }
  void CalcArea()
  {
     area=s*s;
-    System.out.println("Area of Square is: "+area);
  }
  void CalcPerimeter()
  {
     perimeter=4*s;
-    System.out.println("Perimeter of Square is: "+perimeter);
  }
 }
 
@@ -73,16 +75,15 @@ class Circle extends Shape
  Circle(float r)
  {
    this.r=r;
+   System.out.println("For Circle");
  }
  void CalcArea()
  {
     area=3.14*r*r;
-    System.out.println("Area of Circle is: "+area);
  }
  void CalcPerimeter()
  {
     perimeter=2*3.14*r;
-    System.out.println("Perimeter of Circle is: "+perimeter);
  }
 }
 
@@ -92,16 +93,15 @@ class Cube extends Shape
  Cube(int a)
  {
     this.a=a;
+    System.out.println("For Cube");
  }
  void CalcArea()
  {
     area=6*a*a;
-    System.out.println("Area of Cube is  is: "+area);
  }
  void CalcPerimeter()
  {
     perimeter=12*a;
-    System.out.println("Perimeter of Cube is: "+perimeter);
  }
 }
 
@@ -109,24 +109,29 @@ public class Test
 {
     public static void main(String[] args)
     {
-    Trianlge T=new Trianlge(10,20,30,40,50);
+    Shape T=new Triangle(10,20,30,40,50);
     T.CalcArea();
     T.CalcPerimeter();
+    T.display();
 
-    Rectangle R=new Rectangle(10,20);
+    Shape R=new Rectangle(10,20);
     R.CalcArea();
     R.CalcPerimeter();
+    R.display();
 
-    Square S=new Square(10);
+    Shape S=new Square(10);
     S.CalcArea();
     S.CalcPerimeter();
+    S.display();
 
-    Cube C=new Cube(10);
+    Shape C=new Cube(10);
     C.CalcArea();
     C.CalcPerimeter();
+    C.display();
 
-    Circle Cr=new Circle(10);
+    Shape Cr=new Circle(10);
     Cr.CalcArea();
     Cr.CalcPerimeter();
+    Cr.display();
     }
 }
