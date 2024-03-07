@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 interface stack 
 {
@@ -58,7 +59,7 @@ class IntegerStack implements stack
 
     public boolean overflow()
     {
-      if(top==size)
+      if(top==size-1)
       return true;
       else 
       return false;
@@ -124,7 +125,7 @@ class StringStack implements stack
 
     public boolean overflow()
     {
-      if(top==size)
+      if(top==size-1)
       return true;
       else 
       return false;
@@ -138,7 +139,6 @@ class StringStack implements stack
       return false;
     }
 }
-
 
 
 class DoubleStack implements stack
@@ -191,7 +191,7 @@ class DoubleStack implements stack
 
     public boolean overflow()
     {
-      if(top==size)
+      if(top==size-1)
       return true;
       else 
       return false;
@@ -210,23 +210,131 @@ public class Test
 {
     public static void main(String args[])
     {
-        IntegerStack obj=new IntegerStack();
+        IntegerStack obj1=new IntegerStack();
         StringStack obj2=new StringStack();
         DoubleStack obj3=new DoubleStack();
+        Scanner scan =new Scanner(System.in);
+        int choice;
+        String str;
+        while(true)
+        {
+            System.out.println("\n1.IntegerStack\n2.StringStack\n3.DoubleStack\n4.Exit");
+            System.out.print("Enter Your Choice: ");
+            choice=scan.nextInt();
+            switch(choice)
+            {
+              case 1:
+              {  
+                System.out.println("\n11.Push\n12.Pop\n13.Dispay\n14.Exit");
+                System.out.print("Enter Your Choice: ");
+                int Subchoice=scan.nextInt();
+                switch (Subchoice) 
+                {
+                  case 11:{
+                    System.out.print("\nEnter a number to push to IntegerStack: ");
+                    str=scan.next();
+                    obj1.push(str);
+                  }
+                  break;
+             
 
-        obj.push("10");
-        obj.push("20");
-        obj.pop();
-        obj.display();
+                  case 12:{obj1.pop();}
+                  break;
 
-        obj2.push("abc");
-        obj2.push("pqr");
-        obj2.pop();
-        obj2.display();
+                  case 13:{obj1.display();}
+                  break;
 
-        obj3.push("3.14");
-        obj3.push("7.24");
-        obj3.pop();
-        obj3.display();
+                  case 14:{
+                    System.out.println("Exiting Program...");
+                    scan.close();
+                    System.exit(0); 
+                  }
+                  break;
+
+                  default:System.out.println("Wrong choice");
+                }
+              }
+             break;
+
+
+              case 2:
+             {  
+              System.out.println("\n21.Push\n22.POP\n23.Dispay\n24.Exit");
+           System.out.print("Enter Your Choice: ");
+           int Subchoice=scan.nextInt();
+           switch (Subchoice) 
+           {
+               case 21:{
+                System.out.print("\nEnter a String to push to StringStack: ");
+                str=scan.next();
+                obj2.push(str);
+               }
+               break;
+            
+                case 22:{obj2.pop();}
+                break;
+
+                case 23:{obj2.display();}
+                break;
+
+                case 24:{
+                System.out.println("Exiting Program...");
+                scan.close();
+                System.exit(0);   
+                }
+                break;
+
+                default:System.out.println("Wrong choice");
+           }
+        }
+        break;
+      
+
+         case 3:
+         {  
+            System.out.println("\n31.Push\n32.POP\n33.Dispay\n34.Exit");
+            System.out.println("Enter Your Choice: ");
+            int Subchoice=scan.nextInt();
+            switch (Subchoice)
+            {
+                case 31:{
+                System.out.print("\nEnter a String to push to DoubleStack: ");
+                str=scan.next();
+                obj3.push(str);
+                }
+                break;
+             
+                case 32:{obj3.pop();}
+                break;
+ 
+                case 33:{obj3.display();}
+                break;
+ 
+                case 34:{
+                System.out.println("Exiting Program...");
+                scan.close();
+                System.exit(0);
+                }
+                break;
+
+                default:System.out.println("Wrong choice");
+            }
+         }
+          break;
+       
+         
+         case 4:
+         {
+          System.out.println("Exiting Program...");
+          scan.close();
+          System.exit(0);
+         }
+        break;
+
+         default:
+         System.out.println("Wrong choice");
+       
+    }
+}
     }
 }
