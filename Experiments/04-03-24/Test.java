@@ -1,11 +1,13 @@
 import java.util.Scanner;
 
-interface stack {
-    int size = 5;
+interface stack { // All methods inside interface are abstaract, no any concrete method is allowed
+    int size = 5; // All variables are of type static final - i.e.common to all objects and
+                  // constant
 
-    void push(String str);
+    void push(String str); // All methods inside an interface has public access specifier by default which
+                           // cannot be changed
 
-    void pop();
+    void pop(); // No need to write public as it is declared public implicitely
 
     void display();
 
@@ -14,12 +16,12 @@ interface stack {
     boolean underflow();
 }
 
-class IntegerStack implements stack {
+class IntegerStack implements stack {               //implements keyword is used to inherit an interface  
     int[] stack = new int[size];
     String str;
     int top = -1;
 
-    public void push(String str) {
+    public void push(String str) {                    //methods must be declared public explicitely in function definition
         if (overflow()) {
             System.out.println("Stack is full cant insert item");
         } else {
@@ -108,7 +110,7 @@ class StringStack implements stack {
             return false;
     }
 
-    public boolean underflow() {
+    public boolean underflow() {         //All methods defined in interface must be implemented in child class
         if (top == -1)
             return true;
         else
@@ -170,11 +172,11 @@ class DoubleStack implements stack {
 
 public class Test {
     public static void main(String args[]) {
-        IntegerStack obj1 = new IntegerStack();
+        IntegerStack obj1 = new IntegerStack(); // Interfaces cant be instanciated
         StringStack obj2 = new StringStack();
         DoubleStack obj3 = new DoubleStack();
         Scanner scan = new Scanner(System.in);
-        int choice;
+        int choice, Subchoice;
         String str;
         while (true) {
             System.out.println("\n1.IntegerStack\n2.StringStack\n3.DoubleStack\n4.Exit");
@@ -182,107 +184,124 @@ public class Test {
             choice = scan.nextInt();
             switch (choice) {
                 case 1: {
-                    System.out.println("\n11.Push\n12.Pop\n13.Dispay\n14.Exit");
-                    System.out.print("Enter Your Choice: ");
-                    int Subchoice = scan.nextInt();
-                    switch (Subchoice) {
-                        case 11: {
-                            System.out.print("\nEnter a number to push to IntegerStack: ");
-                            str = scan.next();
-                            obj1.push(str);
-                        }
-                            break;
+                    do {
+                        System.out.println("\n1.Push\n2.Pop\n3.Dispay\n4.Previos Menu\n5.Exit");
+                        System.out.print("Enter Your Choice: ");
+                        Subchoice = scan.nextInt();
+                        switch (Subchoice) {
+                            case 1: {
+                                System.out.print("\nEnter a number to push to IntegerStack: ");
+                                str = scan.next();
+                                obj1.push(str);
+                            }
+                                break;
 
-                        case 12: {
-                            obj1.pop();
-                        }
-                            break;
+                            case 2: {
+                                obj1.pop();
+                            }
+                                break;
 
-                        case 13: {
-                            obj1.display();
-                        }
-                            break;
+                            case 3: {
+                                obj1.display();
+                            }
+                                break;
 
-                        case 14: {
-                            System.out.println("Exiting Program...");
-                            scan.close();
-                            System.exit(0);
-                        }
-                            break;
+                            case 4:
+                                break;
 
-                        default:
-                            System.out.println("Wrong choice");
-                    }
+                            case 5: {
+                                System.out.println("Exiting Program...");
+                                scan.close();
+                                System.exit(0);
+                            }
+                                break;
+
+                            default:
+                                System.out.println("Wrong choice");
+                        }
+                    } while (Subchoice != 4);
+
                 }
                     break;
 
                 case 2: {
-                    System.out.println("\n21.Push\n22.POP\n23.Dispay\n24.Exit");
-                    System.out.print("Enter Your Choice: ");
-                    int Subchoice = scan.nextInt();
-                    switch (Subchoice) {
-                        case 21: {
-                            System.out.print("\nEnter a String to push to StringStack: ");
-                            str = scan.next();
-                            obj2.push(str);
-                        }
-                            break;
+                    do {
+                        System.out.println("\n1.Push\n2.Pop\n3.Dispay\n4.Previous Menu\n5.Exit");
+                        System.out.print("Enter Your Choice: ");
+                        Subchoice = scan.nextInt();
+                        switch (Subchoice) {
+                            case 1: {
+                                System.out.print("\nEnter a String to push to StringStack: ");
+                                str = scan.next();
+                                obj2.push(str);
+                            }
+                                break;
 
-                        case 22: {
-                            obj2.pop();
-                        }
-                            break;
+                            case 2: {
+                                obj2.pop();
+                            }
+                                break;
 
-                        case 23: {
-                            obj2.display();
-                        }
-                            break;
+                            case 3: {
+                                obj2.display();
+                            }
+                                break;
 
-                        case 24: {
-                            System.out.println("Exiting Program...");
-                            scan.close();
-                            System.exit(0);
-                        }
-                            break;
+                            case 4:
+                                break;
 
-                        default:
-                            System.out.println("Wrong choice");
-                    }
+                            case 5: {
+                                System.out.println("Exiting Program...");
+                                scan.close();
+                                System.exit(0);
+                            }
+                                break;
+
+                            default:
+                                System.out.println("Wrong choice");
+                        }
+                    } while (Subchoice != 4);
                 }
                     break;
 
                 case 3: {
-                    System.out.println("\n31.Push\n32.POP\n33.Dispay\n34.Exit");
-                    System.out.println("Enter Your Choice: ");
-                    int Subchoice = scan.nextInt();
-                    switch (Subchoice) {
-                        case 31: {
-                            System.out.print("\nEnter a String to push to DoubleStack: ");
-                            str = scan.next();
-                            obj3.push(str);
-                        }
-                            break;
+                    do {
+                        System.out.println("\n1.Push\n2.Pop\n3.Dispay\n4.Previous Menu\n5.Exit");
+                        System.out.println("Enter Your Choice: ");
+                        Subchoice = scan.nextInt();
+                        switch (Subchoice) {
+                            case 1: {
+                                System.out.print("\nEnter a String to push to DoubleStack: ");
+                                str = scan.next();
+                                obj3.push(str);
+                            }
+                                break;
 
-                        case 32: {
-                            obj3.pop();
-                        }
-                            break;
+                            case 2: {
+                                obj3.pop();
+                            }
+                                break;
 
-                        case 33: {
-                            obj3.display();
-                        }
-                            break;
+                            case 3: {
+                                obj3.display();
+                            }
+                                break;
 
-                        case 34: {
-                            System.out.println("Exiting Program...");
-                            scan.close();
-                            System.exit(0);
-                        }
-                            break;
+                            case 4:
+                                break;
 
-                        default:
-                            System.out.println("Wrong choice");
-                    }
+                            case 5: {
+                                System.out.println("Exiting Program...");
+                                scan.close();
+                                System.exit(0);
+                            }
+                                break;
+
+                            default:
+                                System.out.println("Wrong choice");
+                        }
+                    } while (Subchoice != 4);
+
                 }
                     break;
 
