@@ -1,18 +1,11 @@
 import java.util.Scanner;
 
-interface stack { // All methods inside interface are abstaract, no any concrete method is allowed
-    int size = 5; // All variables are of type static final - i.e.common to all objects and
-                  // constant
-
-    void push(String str); // All methods inside an interface has public access specifier by default which
-                           // cannot be changed
-
-    void pop(); // No need to write public as it is declared public implicitely
-
+interface stack {           // All methods inside interface are abstaract, no any concrete method is allowed
+    int size = 5;           // All variables are of type static final - i.e.common to all objects and  constant
+    void push(String str);  // All methods inside an interface has public access specifier by default which      // cannot be changed
+    void pop();            // No need to write public as it is declared public implicitely
     void display();
-
     boolean overflow();
-
     boolean underflow();
 }
 
@@ -33,7 +26,6 @@ class IntegerStack implements stack {               //implements keyword is used
     }
 
     public void pop() {
-
         if (underflow()) {
             System.out.println("Stack Already Empty ,cant delete more!");
         } else {
@@ -47,7 +39,7 @@ class IntegerStack implements stack {               //implements keyword is used
             System.out.println("Stack is empty");
         else {
             System.out.println("Stack elements are: ");
-            for (int i = 0; i <= top; i++)
+            for (int i = top; i >= 0; i--)
                 System.out.println(stack[i]);
         }
     }
@@ -98,7 +90,7 @@ class StringStack implements stack {
             System.out.println("Stack is empty");
         else {
             System.out.println("Stack elements are: ");
-            for (int i = 0; i <= top; i++)
+            for (int i = top; i >= 0; i--)
                 System.out.println(stack[i]);
         }
     }
@@ -149,7 +141,7 @@ class DoubleStack implements stack {
             System.out.println("Stack is empty");
         else {
             System.out.println("Stack elements are: ");
-            for (int i = 0; i <= top; i++)
+            for (int i = top; i >= 0; i--)
                 System.out.println(stack[i]);
         }
     }
@@ -169,7 +161,7 @@ class DoubleStack implements stack {
     }
 }
 
-public class Test1 {
+public class Test {
     public static void main(String args[]) {
         IntegerStack obj1 = new IntegerStack(); // Interfaces cant be instanciated
         StringStack obj2 = new StringStack();
@@ -193,7 +185,7 @@ public class Test1 {
                                 str = scan.next();
                                 obj1.push(str);
                             }
-                                break;
+                            break;
 
                             case 2: obj1.pop();
                             break;
@@ -209,7 +201,7 @@ public class Test1 {
                                 scan.close();
                                 System.exit(0);
                             }
-                                break;
+                            break;
 
                             default: System.out.println("Wrong choice");
                         }
@@ -246,7 +238,7 @@ public class Test1 {
                                 scan.close();
                                 System.exit(0);
                             }
-                                break;
+                            break;
 
                             default:System.out.println("Wrong choice");
                         }
@@ -266,7 +258,7 @@ public class Test1 {
                                 str = scan.next();
                                 obj3.push(str);
                             }
-                                break;
+                            break;
 
                             case 2: obj3.pop();
                             break;
@@ -298,7 +290,6 @@ public class Test1 {
                 break;
 
                 default: System.out.println("Wrong choice");
-
             }
         }
     }
