@@ -127,7 +127,6 @@ class DoubleStack implements stack {
         if (overflow()) {
             System.out.println("Stack is full cant insert item");
         } else {
-
             top++;
             double elem = Double.parseDouble(str);
             stack[top] = elem;
@@ -170,7 +169,7 @@ class DoubleStack implements stack {
     }
 }
 
-public class Test {
+public class Test1 {
     public static void main(String args[]) {
         IntegerStack obj1 = new IntegerStack(); // Interfaces cant be instanciated
         StringStack obj2 = new StringStack();
@@ -184,9 +183,9 @@ public class Test {
             choice = scan.nextInt();
             switch (choice) {
                 case 1: {
-                    do {
-                        System.out.println("\n1.Push\n2.Pop\n3.Dispay\n4.Previos Menu\n5.Exit");
-                        System.out.print("Enter Your Choice: ");
+                  System.out.println("\n1.Push\n2.Pop\n3.Dispay\n4.Previos Menu\n5.Exit");
+				  do {
+                        System.out.print("\nEnter Your Choice: ");
                         Subchoice = scan.nextInt();
                         switch (Subchoice) {
                             case 1: {
@@ -196,15 +195,11 @@ public class Test {
                             }
                                 break;
 
-                            case 2: {
-                                obj1.pop();
-                            }
-                                break;
+                            case 2: obj1.pop();
+                            break;
 
-                            case 3: {
-                                obj1.display();
-                            }
-                                break;
+                            case 3: obj1.display();
+                            break;
 
                             case 4:
                                 break;
@@ -216,18 +211,18 @@ public class Test {
                             }
                                 break;
 
-                            default:
-                                System.out.println("Wrong choice");
+                            default: System.out.println("Wrong choice");
                         }
                     } while (Subchoice != 4);
 
                 }
-                    break;
+                 break;
 
-                case 2: {
-                    do {
-                        System.out.println("\n1.Push\n2.Pop\n3.Dispay\n4.Previous Menu\n5.Exit");
-                        System.out.print("Enter Your Choice: ");
+                case 2: 
+				{
+                   System.out.println("\n1.Push\n2.Pop\n3.Dispay\n4.Previous Menu\n5.Exit");
+					do {
+                        System.out.print("\nEnter Your Choice: ");
                         Subchoice = scan.nextInt();
                         switch (Subchoice) {
                             case 1: {
@@ -237,15 +232,11 @@ public class Test {
                             }
                                 break;
 
-                            case 2: {
-                                obj2.pop();
-                            }
-                                break;
+                            case 2: obj2.pop();
+                            break;
 
-                            case 3: {
-                                obj2.display();
-                            }
-                                break;
+                            case 3: obj2.display();
+                            break;
 
                             case 4:
                                 break;
@@ -257,17 +248,17 @@ public class Test {
                             }
                                 break;
 
-                            default:
-                                System.out.println("Wrong choice");
+                            default:System.out.println("Wrong choice");
                         }
                     } while (Subchoice != 4);
                 }
                     break;
 
-                case 3: {
-                    do {
-                        System.out.println("\n1.Push\n2.Pop\n3.Dispay\n4.Previous Menu\n5.Exit");
-                        System.out.println("Enter Your Choice: ");
+                case 3: 
+				{ 
+                 System.out.println("\n1.Push\n2.Pop\n3.Dispay\n4.Previous Menu\n5.Exit");
+				 do {
+                        System.out.println("\nEnter Your Choice: ");
                         Subchoice = scan.nextInt();
                         switch (Subchoice) {
                             case 1: {
@@ -277,15 +268,11 @@ public class Test {
                             }
                                 break;
 
-                            case 2: {
-                                obj3.pop();
-                            }
-                                break;
+                            case 2: obj3.pop();
+                            break;
 
-                            case 3: {
-                                obj3.display();
-                            }
-                                break;
+                            case 3: obj3.display();
+                            break;
 
                             case 4:
                                 break;
@@ -295,13 +282,11 @@ public class Test {
                                 scan.close();
                                 System.exit(0);
                             }
-                                break;
+                            break;
 
-                            default:
-                                System.out.println("Wrong choice");
+                            default: System.out.println("Wrong choice");
                         }
                     } while (Subchoice != 4);
-
                 }
                     break;
 
@@ -310,10 +295,9 @@ public class Test {
                     scan.close();
                     System.exit(0);
                 }
-                    break;
+                break;
 
-                default:
-                    System.out.println("Wrong choice");
+                default: System.out.println("Wrong choice");
 
             }
         }
