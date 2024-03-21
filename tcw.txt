@@ -1,0 +1,68 @@
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        int SumS=0;
+        int SumL=0;
+        Scanner scan=new Scanner(System.in);  
+        int N=scan.nextInt();
+        int K=scan.nextInt();
+        int[] arr=new int[N];
+        int[] temp=new int[N];
+        while(K<1||K>100)
+        {
+         System.out.println("Not Expected ");
+         System.out.println("Enter k between 1 and 100");
+          K=scan.nextInt();
+        }
+        for(int i=0;i<K;i++)
+        {
+          int W=scan.nextInt();   
+         while(W<1||W>100000)
+        {
+         System.out.println("Not Expected ");
+         System.out.println("Enter k between 1 and 100000");
+          W=scan.nextInt();
+        }
+         arr[i]=W;
+        }
+       
+        for(int i=0;i<N;i++)
+        {
+            for(int j=1;j<N;j++)
+            {
+                if(arr[j]<arr[i])
+                {
+                    
+                    temp[i]=arr[j];
+                    System.out.print("added"+temp[i]);
+                    
+                }
+                else if(arr[i]<arr[j])
+                {
+                    temp[i]=arr[i];
+                }
+            }
+        }
+        
+        for(int i=0;i<N;i++)
+        {
+            System.out.println(temp[i]);
+        }
+                            
+                            for(int i=0;i<K;i++)
+                            {
+                                SumS+=temp[i];
+                            }
+                            
+                            for(int i=K;i<N;i++)
+                            {
+                                 SumL=temp[i];
+                            }
+                            int result=SumL-SumS;
+                            System.out.print(result);
+                            
+        
+    }
+}
